@@ -26,7 +26,7 @@ public class Doctor {
 	private Integer id;
 
 	@Column(name = "doct_cedula")
-	private Integer cedula;
+	private String cedula;
 
 	@Column(name = "doct_nombre")
 	private String nombre;
@@ -56,14 +56,6 @@ public class Doctor {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public Integer getCedula() {
-		return cedula;
-	}
-
-	public void setCedula(Integer cedula) {
-		this.cedula = cedula;
 	}
 
 	public String getNombre() {
@@ -113,5 +105,21 @@ public class Doctor {
 	public void setSueldo(BigDecimal sueldo) {
 		this.sueldo = sueldo;
 	}
+
+	public String getCedula() {
+		return cedula;
+	}
+
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
+	}
+
+	@Override
+	public String toString() {
+		return "Doctor [id=" + id + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido
+				+ ", fechaNacimiento=" + fechaNacimiento + ", numeroConsultorio=" + numeroConsultorio
+				+ ", codigoSenescyt=" + codigoSenescyt + ", sueldo=" + sueldo + "]";
+	}
+	
 
 }

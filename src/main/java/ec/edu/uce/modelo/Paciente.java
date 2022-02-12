@@ -14,42 +14,129 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "paciente")
 public class Paciente {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_paciente")
 	@SequenceGenerator(name = "seq_paciente", sequenceName = "seq_paciente", allocationSize = 1)
 	@Column(name = "paci_id")
 	private Integer id;
-	
+
 	@Column(name = "paci_cedula")
-	private Integer cedula;
-	
+	private String cedula;
+
 	@Column(name = "paci_nombre")
 	private String nombre;
-	
+
 	@Column(name = "paci_apellido")
 	private String apellido;
-	
+
 	@Column(name = "paci_fecha_nacimiento", columnDefinition = "TIMESTAMP") // HORA Y FECHA
 	private LocalDateTime fechaNacimiento;
 
 	@Column(name = "paci_codigo_iess")
 	private Integer codigoIESS;
-	
+
 	@Column(name = "paci_estatura")
-	private Integer estatura;
-	
+	private BigDecimal estatura;
+
 	@Column(name = "paci_peso")
 	private BigDecimal peso;
-	
+
 	@Column(name = "paci_edad")
 	private Integer edad;
-	
+
 	@OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL)
 	private List<CitaMedica> detalleCitaMedicaPaciente;
-	
+
+	// gets and sets
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public LocalDateTime getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(LocalDateTime fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public Integer getCodigoIESS() {
+		return codigoIESS;
+	}
+
+	public void setCodigoIESS(Integer codigoIESS) {
+		this.codigoIESS = codigoIESS;
+	}
+
+	public BigDecimal getPeso() {
+		return peso;
+	}
+
+	public void setPeso(BigDecimal peso) {
+		this.peso = peso;
+	}
+
+	public Integer getEdad() {
+		return edad;
+	}
+
+	public void setEdad(Integer edad) {
+		this.edad = edad;
+	}
+
+	public List<CitaMedica> getDetalleCitaMedicaPaciente() {
+		return detalleCitaMedicaPaciente;
+	}
+
+	public void setDetalleCitaMedicaPaciente(List<CitaMedica> detalleCitaMedicaPaciente) {
+		this.detalleCitaMedicaPaciente = detalleCitaMedicaPaciente;
+	}
+
+	public String getCedula() {
+		return cedula;
+	}
+
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
+	}
+
+	public BigDecimal getEstatura() {
+		return estatura;
+	}
+
+	public void setEstatura(BigDecimal estatura) {
+		this.estatura = estatura;
+	}
+
+	@Override
+	public String toString() {
+		return "Paciente [id=" + id + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido
+				+ ", fechaNacimiento=" + fechaNacimiento + ", codigoIESS=" + codigoIESS + ", estatura=" + estatura
+				+ ", peso=" + peso + ", edad=" + edad + "]";
+	}
+
 }
