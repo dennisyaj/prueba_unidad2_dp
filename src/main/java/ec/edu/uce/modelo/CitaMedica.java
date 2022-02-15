@@ -13,46 +13,46 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-@Entity 
+@Entity
 @Table(name = "cita_medica")
 public class CitaMedica {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_cita_medica")
 	@SequenceGenerator(name = "seq_cita_medica", sequenceName = "seq_cita_medica", allocationSize = 1)
 	@Column(name = "cime_id")
 	private Integer id;
-	
+
 	@Column(name = "cime_numero")
-	private Integer numero;
-	
+	private String numero;
+
 	@Column(name = "cime_fecha_cita", columnDefinition = "TIMESTAMP") // HORA Y FECHA
 	private LocalDateTime fechaCita;
-	
+
 	@Column(name = "cime_valor_cita")
 	private BigDecimal valorCita;
-	
+
 	@Column(name = "cime_lugar_cita")
 	private String lugarCita;
-	
+
 	@Column(name = "cime_diagnostico")
 	private String diagnostico;
-	
+
 	@Column(name = "cime_receta")
 	private String receta;
-	
+
 	@Column(name = "cime_fecha_control", columnDefinition = "TIMESTAMP") // HORA Y FECHA
 	private LocalDateTime fechaControl;
 
 	@ManyToOne
 	@JoinColumn(name = "paci_id")
 	private Paciente paciente;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "doct_id")
 	private Doctor doctor;
-	
-	//gets and set
+
+	// gets and set
 	public Integer getId() {
 		return id;
 	}
@@ -61,12 +61,28 @@ public class CitaMedica {
 		this.id = id;
 	}
 
-	public Integer getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(Integer numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
+	}
+
+	public Paciente getPaciente() {
+		return paciente;
+	}
+
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
+	}
+
+	public Doctor getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
 	}
 
 	public LocalDateTime getFechaCita() {
@@ -116,9 +132,5 @@ public class CitaMedica {
 	public void setFechaControl(LocalDateTime fechaControl) {
 		this.fechaControl = fechaControl;
 	}
-	
 
-	
-	
-	
 }

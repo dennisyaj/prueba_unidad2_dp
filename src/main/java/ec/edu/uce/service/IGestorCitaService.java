@@ -7,7 +7,7 @@ import ec.edu.uce.modelo.CitaMedica;
 
 public interface IGestorCitaService {
 
-	void agendamientoCitaMedica(Integer Número, LocalDateTime fechaCita, BigDecimal valorCita, String cita, String cedulaDoctor, String cedulaPaciente);
+	void agendamientoCitaMedica(String Número, LocalDateTime fechaCita, BigDecimal valorCita, String lugarCita, String apellidoDoctor, String codigoSeguroPaciente);
 
 	void actualizacionCitaMedica(CitaMedica citaMedica);
 

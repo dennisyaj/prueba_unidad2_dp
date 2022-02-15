@@ -1,6 +1,5 @@
 package ec.edu.uce.modelo;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -37,16 +36,16 @@ public class Paciente {
 	private LocalDateTime fechaNacimiento;
 
 	@Column(name = "paci_codigo_iess")
-	private Integer codigoIESS;
+	private String codigoIESS;
 
 	@Column(name = "paci_estatura")
-	private BigDecimal estatura;
+	private Double estatura;
 
 	@Column(name = "paci_peso")
-	private BigDecimal peso;
+	private Double peso;
 
 	@Column(name = "paci_edad")
-	private Integer edad;
+	private String edad;
 
 	@OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL)
 	private List<CitaMedica> detalleCitaMedicaPaciente;
@@ -84,27 +83,35 @@ public class Paciente {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public Integer getCodigoIESS() {
+	public String getCodigoIESS() {
 		return codigoIESS;
 	}
 
-	public void setCodigoIESS(Integer codigoIESS) {
+	public void setCodigoIESS(String codigoIESS) {
 		this.codigoIESS = codigoIESS;
 	}
 
-	public BigDecimal getPeso() {
+	public Double getEstatura() {
+		return estatura;
+	}
+
+	public void setEstatura(Double estatura) {
+		this.estatura = estatura;
+	}
+
+	public Double getPeso() {
 		return peso;
 	}
 
-	public void setPeso(BigDecimal peso) {
+	public void setPeso(Double peso) {
 		this.peso = peso;
 	}
 
-	public Integer getEdad() {
+	public String getEdad() {
 		return edad;
 	}
 
-	public void setEdad(Integer edad) {
+	public void setEdad(String edad) {
 		this.edad = edad;
 	}
 
@@ -122,14 +129,6 @@ public class Paciente {
 
 	public void setCedula(String cedula) {
 		this.cedula = cedula;
-	}
-
-	public BigDecimal getEstatura() {
-		return estatura;
-	}
-
-	public void setEstatura(BigDecimal estatura) {
-		this.estatura = estatura;
 	}
 
 	@Override

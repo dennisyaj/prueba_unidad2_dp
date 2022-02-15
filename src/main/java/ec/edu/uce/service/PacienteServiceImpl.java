@@ -17,8 +17,8 @@ public class PacienteServiceImpl implements IPacienteService {
 
 	@Override
 	public void insertarPaciente(Paciente paciente) {
-		LOG.info("se ha ingresado un paciente");
 		this.iPacienteRepo.insertarPaciente(paciente);
+		LOG.info("se ha ingresado un paciente");
 	}
 
 	@Override
@@ -27,8 +27,14 @@ public class PacienteServiceImpl implements IPacienteService {
 	}
 
 	@Override
+	public Paciente buscarPacienteCodigoSeguro(String codigo) {
+		return this.iPacienteRepo.buscarPacienteCodigoSeguro(codigo);
+	}
+
+	@Override
 	public void actualizarPaciente(Paciente paciente) {
 		this.iPacienteRepo.actualizarPaciente(paciente);
+		LOG.info("Se ha actualizado el paciente");
 	}
 
 	@Override

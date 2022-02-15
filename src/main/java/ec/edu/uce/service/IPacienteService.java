@@ -8,6 +8,8 @@ public interface IPacienteService {
 
 	Paciente buscarPaciente(Integer id);
 
+	Paciente buscarPacienteCodigoSeguro(String codigo);
+
 	void actualizarPaciente(Paciente paciente);
 
 	void borrarPaciente(Integer id);

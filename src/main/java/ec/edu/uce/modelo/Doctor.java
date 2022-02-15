@@ -14,7 +14,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "doctor")
 public class Doctor {
@@ -38,14 +37,14 @@ public class Doctor {
 	private LocalDateTime fechaNacimiento;
 
 	@Column(name = "doct_numero_consultorio")
-	private Integer numeroConsultorio;
+	private String numeroConsultorio;
 
 	@Column(name = "doct_codigo_senescyt")
-	private Integer codigoSenescyt;
+	private String codigoSenescyt;
 
 	@Column(name = "doct_sueldo")
 	private BigDecimal sueldo;
-	
+
 	@OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
 	private List<CitaMedica> detalleCitaMedica;
 
@@ -82,20 +81,28 @@ public class Doctor {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public Integer getNumeroConsultorio() {
+	public String getNumeroConsultorio() {
 		return numeroConsultorio;
 	}
 
-	public void setNumeroConsultorio(Integer numeroConsultorio) {
+	public void setNumeroConsultorio(String numeroConsultorio) {
 		this.numeroConsultorio = numeroConsultorio;
 	}
 
-	public Integer getCodigoSenescyt() {
+	public String getCodigoSenescyt() {
 		return codigoSenescyt;
 	}
 
-	public void setCodigoSenescyt(Integer codigoSenescyt) {
+	public void setCodigoSenescyt(String codigoSenescyt) {
 		this.codigoSenescyt = codigoSenescyt;
+	}
+
+	public List<CitaMedica> getDetalleCitaMedica() {
+		return detalleCitaMedica;
+	}
+
+	public void setDetalleCitaMedica(List<CitaMedica> detalleCitaMedica) {
+		this.detalleCitaMedica = detalleCitaMedica;
 	}
 
 	public BigDecimal getSueldo() {
@@ -120,6 +127,5 @@ public class Doctor {
 				+ ", fechaNacimiento=" + fechaNacimiento + ", numeroConsultorio=" + numeroConsultorio
 				+ ", codigoSenescyt=" + codigoSenescyt + ", sueldo=" + sueldo + "]";
 	}
-	
 
 }

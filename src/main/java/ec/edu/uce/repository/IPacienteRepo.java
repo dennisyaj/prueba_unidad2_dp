@@ -7,6 +7,8 @@ public interface IPacienteRepo {
 	void insertarPaciente(Paciente paciente);
 
 	Paciente buscarPaciente(Integer id);
+	
+	Paciente buscarPacienteCodigoSeguro(String codigo);
 
 	void actualizarPaciente(Paciente paciente);
 

@@ -17,9 +17,8 @@ public class DoctorServiceImpl implements IDoctorService {
 
 	@Override
 	public void insertarDoctor(Doctor doctor) {
-		LOG.info("se ha ingresado un doctor");
 		this.iDoctorRepo.insertarDoctor(doctor);
-
+		LOG.info("se ha ingresado un doctor");
 	}
 
 	@Override
@@ -28,8 +27,14 @@ public class DoctorServiceImpl implements IDoctorService {
 	}
 
 	@Override
+	public Doctor buscarDoctorApellido(String apellido) {
+		return this.iDoctorRepo.buscarDoctorApellido(apellido);
+	}
+
+	@Override
 	public void actualizarDoctor(Doctor doctor) {
 		this.iDoctorRepo.actualizarDoctor(doctor);
+		LOG.info("Se ha actualizado el Doctor");
 	}
 
 	@Override

@@ -7,6 +7,8 @@ public interface IDoctorRepo {
 	void insertarDoctor(Doctor doctor);
 
 	Doctor buscarDoctor(Integer id);
+	
+	Doctor buscarDoctorApellido(String apellido);
 
 	void actualizarDoctor(Doctor doctor);
 

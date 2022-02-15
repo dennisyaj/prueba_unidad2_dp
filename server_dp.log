@@ -1,4 +1,7 @@
-2022-02-11 20:08:34 INFO  main DoctorServiceImpl:20 :  se ha ingresado un doctor
-2022-02-11 20:08:34 INFO  main DoctorServiceImpl:20 :  se ha ingresado un doctor
-2022-02-11 20:08:34 INFO  main PacienteServiceImpl:20 :  se ha ingresado un paciente
-2022-02-11 20:08:34 INFO  main PacienteServiceImpl:20 :  se ha ingresado un paciente
+2022-02-15 01:11:54 INFO  main DoctorServiceImpl:21 :  se ha ingresado un doctor
+2022-02-15 01:11:54 INFO  main DoctorServiceImpl:21 :  se ha ingresado un doctor
+2022-02-15 01:11:54 INFO  main PacienteServiceImpl:21 :  se ha ingresado un paciente
+2022-02-15 01:11:54 INFO  main PacienteServiceImpl:21 :  se ha ingresado un paciente
+2022-02-15 01:11:54 INFO  main PacienteServiceImpl:37 :  Se ha actualizado el paciente
+2022-02-15 01:11:54 INFO  main DoctorServiceImpl:37 :  Se ha actualizado el Doctor
+2022-02-15 01:11:55 INFO  main GestorCitaServiceImpl:53 :  Se ha insertado una cita

@@ -1,8 +1,8 @@
 package ec.edu.uce.repository;
 
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
@@ -24,6 +24,14 @@ public class PacienteRepoImpl implements IPacienteRepo {
 	@Override
 	public Paciente buscarPaciente(Integer id) {
 		return this.entityManager.find(Paciente.class, id);
+	}
+
+	@Override
+	public Paciente buscarPacienteCodigoSeguro(String codigo) {
+		TypedQuery<Paciente> typedQuery = this.entityManager.createQuery("SELECT p FROM Paciente p where p.codigoIESS=:valor", Paciente.class);
+		typedQuery.setParameter("valor", codigo);
+
+		return typedQuery.getSingleResult();
 	}
 
 	@Override
