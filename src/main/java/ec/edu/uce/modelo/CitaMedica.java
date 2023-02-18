@@ -116,6 +116,22 @@ public class CitaMedica {
 	public void setFechaControl(LocalDateTime fechaControl) {
 		this.fechaControl = fechaControl;
 	}
+
+	public Paciente getPaciente() {
+		return paciente;
+	}
+
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
+	}
+
+	public Doctor getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
+	}
 	
 
 	

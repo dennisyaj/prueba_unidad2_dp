@@ -8,6 +8,8 @@ public interface IDoctorService {
 
 	Doctor buscarDoctor(Integer id);
 
+	Doctor buscarDoctorCEdula(String id);
+
 	void actualizarDoctor(Doctor doctor);
 
 	void borrarDoctor(Integer id);

@@ -1,6 +1,5 @@
 package ec.edu.uce.service;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,14 +9,12 @@ import ec.edu.uce.repository.IDoctorRepo;
 @Service
 public class DoctorServiceImpl implements IDoctorService {
 
-	private static Logger LOG = Logger.getLogger(DoctorServiceImpl.class);
 
 	@Autowired
 	private IDoctorRepo iDoctorRepo;
 
 	@Override
 	public void insertarDoctor(Doctor doctor) {
-		LOG.info("se ha ingresado un doctor");
 		this.iDoctorRepo.insertarDoctor(doctor);
 
 	}
@@ -35,6 +32,11 @@ public class DoctorServiceImpl implements IDoctorService {
 	@Override
 	public void borrarDoctor(Integer id) {
 		this.iDoctorRepo.borrarDoctor(id);
+	}
+
+	@Override
+	public Doctor buscarDoctorCEdula(String cedula) {
+		return this.iDoctorRepo.buscarDoctorPorCedula(cedula);
 	}
 
 }

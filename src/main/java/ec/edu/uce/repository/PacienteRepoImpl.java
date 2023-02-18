@@ -3,6 +3,7 @@ package ec.edu.uce.repository;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
@@ -35,6 +36,13 @@ public class PacienteRepoImpl implements IPacienteRepo {
 	public void borrarPaciente(Integer id) {
 		Paciente paciente = this.buscarPaciente(id);
 		this.entityManager.remove(paciente);
+	}
+
+	@Override
+	public Paciente buscarPacienteCedula(String cedula) {
+		TypedQuery<Paciente> query = this.entityManager.createQuery("SELECT p FROM Paciente WHERE p.cedula=:cedula", Paciente.class);
+		query.setParameter("cedula", cedula);
+		return query.getSingleResult();
 	}
 
 }
